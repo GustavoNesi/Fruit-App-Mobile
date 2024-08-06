@@ -3,6 +3,10 @@ export default {
         black: "#161616",
         white: "#F7F7F7",
 
+        gray100: "#D1D4C9",
+        gray200: "#393E46",
+        gray300: "#222831",
+
         green400: "#346751",
         green500: "#1A4D2E",
 
@@ -10,7 +14,8 @@ export default {
 
         yellow400: "#FF9F29",
     },
-    theme: {
-        text: "Merriweather_400Regular"
+    fonts: {
+        title: "Inter_900Black",
+        text: "Inter_400Regular",
     }
 }
