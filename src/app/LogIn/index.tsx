@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FIREBASE_AUTH } from "../../../FirebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { ActivityIndicator } from "react-native";
+import { ErrorMessage } from "../../components/ErrorContainer";
 
 export function LogIn() {
     const [isFocused, setIsFocused] = useState(false);
@@ -15,16 +16,23 @@ export function LogIn() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
 
+    const [error, setError] = useState('');
+    const [errorVisible, setErrorVisible] = useState(false);
+
     const auth = FIREBASE_AUTH;
 
     async function signIn() {
         setLoading(true);
+        setError(''); 
+        setErrorVisible(false);
+
         try {
             const response = await signInWithEmailAndPassword(auth, email, password)
             console.log(response)
         } catch (error: any) {
             console.log(error)
-            alert('Sing in Failed: ' + error.message)
+            setError("Erro ao fazer o Login")
+            setErrorVisible(true)
         } finally {
             setLoading(false)
         }
@@ -32,12 +40,14 @@ export function LogIn() {
  
     async function signUp() {
         setLoading(true);
+        setError(''); 
+        setErrorVisible(false);
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password)
             console.log(response)
-            alert('Check your emails!')
         } catch (error: any) {
-            console.log(error)
+            setError("Erro ao fazer o Cadastro")
+            setErrorVisible(true)
         } finally {
             setLoading(false)
         }
@@ -75,6 +85,8 @@ export function LogIn() {
                         value={password}
                         onChangeText={(text) => setPassword(text)}
                     />
+
+                    <ErrorMessage message={error} visible={errorVisible} />
 
                     { loading ? 
                         <ActivityIndicator size='large' color="#346751"/>

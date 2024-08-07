@@ -15,7 +15,7 @@ export const RowContainer = styled.View`
 export const Item = styled.View`
   width: 180px;
   height: 220px;
-  background-color: ${({ theme }) => theme.colors.green400};
+  background-color: ${({ color }) => color || 'gray'};;
   border-radius: 15px;
   border-color: ${({ theme }) => theme.colors.green500};
   border: 2px;

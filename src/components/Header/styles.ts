@@ -36,12 +36,10 @@ export const Img = styled.Image.attrs({
 `
 
 export const MarketContainer = styled.TouchableOpacity`
+    flex-direction: row;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 60px;
-
-    border: 2px;
-    border-color: ${({ theme }) => theme.colors.green400};
-    border-radius: 100px;
 `
