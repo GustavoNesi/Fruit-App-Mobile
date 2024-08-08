@@ -55,6 +55,21 @@ export function MyTabs() {
         }}
       />
 
+      <Tab.Screen 
+        name="Liked"  
+        component={Home} 
+        options={{ 
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused}) => {
+            if(focused){
+              return <Entypo name="home" size={size} color="#F7F7F7" />
+            } else {
+              return <AntDesign name="home" size={size} color="#F7F7F7" />
+            }
+          } 
+        }}
+      />
+
     </Tab.Navigator>
   );
 }

@@ -6,7 +6,7 @@ const statusBarHeight = Constants.statusBarHeight;
 
 export const ScrollView = styled.ScrollView`
     flex: 1;
-    background-color: ${({ theme }) => theme.colors.gray300};
+    background-color: ${({ theme }) => theme.colors.gray100};
 `
 
 export const Container = styled.View`
@@ -18,14 +18,8 @@ export const Container = styled.View`
 
 export const SearchContainer = styled.View`
     flex-direction: column;
-
-
+    justify-content: center;
     height: 1100px;
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.black}; 
-
-    border: 4px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-color: ${({ theme }) => theme.colors.black};
+    background-color: rebeccapurple;
 `

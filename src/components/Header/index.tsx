@@ -1,20 +1,25 @@
-import { AvatarContainer, Container, Img, MarketContainer, Text } from "./styles";
+import { AvatarContainer, Container, Img, MarketContainer, SubTitle, TextContainer, Title, TitleContainer } from "./styles";
 
-import Feather from '@expo/vector-icons/Feather';
-
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export function Header() {
     return(
         <Container>
-           <AvatarContainer>
-                <Img source={{uri: "https://github.com/gustavonesi.png"}}/>
-           </AvatarContainer>
 
-           <MarketContainer>
-                <FontAwesome5 name="map-marker-alt" size={22} color="#A02334" />
-                <Feather name="shopping-cart" size={24} color="#346751" />
-           </MarketContainer>
+            <TitleContainer>
+                <AvatarContainer>
+                    <Img source={{uri: "https://github.com/gustavonesi.png"}}/>
+                </AvatarContainer>
+                <TextContainer>
+                    <Title>Welcome Back</Title>
+                    <SubTitle>Gustavo Nesi</SubTitle>
+                </TextContainer> 
+            </TitleContainer>
+            
+
+            <MarketContainer>
+                <Ionicons name="bag-handle-outline" size={24} color="#222831" />
+            </MarketContainer>
         </Container>
     )
 }

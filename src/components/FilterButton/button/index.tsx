@@ -1,11 +1,13 @@
-import { Category, Container } from "./styles";
 
-type ItemProps = {title: string};
+import { Container } from "./styles";
 
-export function ButtonList({title}: ItemProps) {
+type ItemProps = {
+    backgroundColor: string;
+};
+
+export function ButtonList({ backgroundColor }: ItemProps) {
     return(
-        <Container>
-            <Category>{title}</Category>
-        </Container>
+        <Container backgroundColor={backgroundColor}/>
+
     )
 }

@@ -4,6 +4,7 @@ import { Container, ScrollView, SearchContainer,  } from "./styles";
 import { Banner } from "../../components/Banner";
 import { FilterButton } from "../../components/FilterButton";
 import { Items } from "../../components/FilterItens";
+import { Search } from "../../components/Search";
 
 export function Home() {
     return(
@@ -13,11 +14,15 @@ export function Home() {
           <Header/>  
 
           <Banner/>
-          
+
+          <FilterButton/>
+
           <SearchContainer>
-            <FilterButton/>
+
+            <Search/>
 
             <Items/>
+
           </SearchContainer>
           
         </Container>
