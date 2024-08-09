@@ -8,32 +8,32 @@ type ButtonContainerProps = {
 }
 
 
-export const Container = styled.View`
+export const Container = styled.KeyboardAvoidingView`
     flex: 1;
     align-items: center;
-    background-color: ${({ theme }) => theme.colors.black}
+    background-color: ${({ theme }) => theme.colors.white};
 `
 
 export const Img = styled.Image`
     width: 100%;
-    height: 400px;
+    height: 320px;
     position: absolute;
 `
 export const ContentContainer = styled.View`
     width: 100%;
     height: 400px;
 
-    margin-top: 350px;
+    margin-top: 300px;
     border-radius: 25px;
     
-    background-color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.white};
     align-items: center;
     position: relative;
 `
 
 export const Title = styled.Text`
     font-family: ${({ theme }) => theme.fonts.text};
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
     font-size: 40px;
     font-weight: bold;
     
@@ -42,7 +42,7 @@ export const Title = styled.Text`
 
 export const SubTitle = styled.Text`
     font-family: ${({ theme }) => theme.fonts.text};
-    color: ${({ theme }) => theme.colors.gray100};
+    color: ${({ theme }) => theme.colors.gray300};
     font-size: 13px;
     
     margin-top: 10px;
@@ -63,10 +63,10 @@ export const Inputs = styled.TextInput`
     padding: 10px;
 
     border-radius: 12px;
-    border: 2px;
+    border: 3px;
     border-color: ${({ focused, theme }) => focused ? theme.colors.green400 : theme.colors.gray200};
-    background-color: ${({ theme }) => theme.colors.gray300};
-    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
 
 `
 

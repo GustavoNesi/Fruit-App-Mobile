@@ -1,9 +1,13 @@
 import { Text, View } from "react-native";
+import { Header } from "../../../components/Header";
+import { Container, ScrollView } from "./styels";
 
 export function Cart() {
     return(
-        <View>
-            <Text>Look</Text>
-        </View>
+        <ScrollView>
+            <Container>
+                
+            </Container>
+        </ScrollView>
     )
 }

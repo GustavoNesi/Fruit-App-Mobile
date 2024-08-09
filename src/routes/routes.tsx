@@ -5,10 +5,22 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import IoniconsOutline from '@expo/vector-icons/Ionicons';
 
 import {Home} from "../app/Home";
-import {Product} from "../app/Home/Product";
 import {Cart} from "../app/Home/Cart";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import ItemDetailScreen from "../app/Home/Product";
 
 const Tab = createBottomTabNavigator();
+
+const InsideStack = createNativeStackNavigator();
+
+export function InsideLayout() {
+  return(
+    <InsideStack.Navigator>
+      <InsideStack.Screen name='My tolls' component={Home} options={{ headerShown: false }}/>
+      <InsideStack.Screen name='details' component={ItemDetailScreen} options={{ headerShown: false }}/>
+    </InsideStack.Navigator>
+  )
+}
 
 export function MyTabs() {
   return (
@@ -19,9 +31,11 @@ export function MyTabs() {
           position: 'absolute',
           backgroundColor: '#1A4D2E',
           borderTopWidth: 0,
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
+          borderTopLeftRadius: 30,
+          borderTopRightRadius: 30,
           height: 60,
+          width: 300,
+          left: 50,
         }
       }}
     >

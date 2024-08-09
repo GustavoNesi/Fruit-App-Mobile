@@ -5,6 +5,7 @@ import { Banner } from "../../components/Banner";
 import { FilterButton } from "../../components/FilterButton";
 import { Items } from "../../components/FilterItens";
 import { Search } from "../../components/Search";
+import { Section } from "../../components/section";
 
 export function Home() {
     return(
@@ -15,15 +16,15 @@ export function Home() {
 
           <Banner/>
 
+          <Section name="Categorias"/>
+
           <FilterButton/>
 
           <SearchContainer>
-
             <Search/>
-
-            <Items/>
-
           </SearchContainer>
+
+          <Items/>
           
         </Container>
       </ScrollView>

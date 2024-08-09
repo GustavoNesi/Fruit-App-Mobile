@@ -6,7 +6,7 @@ const statusBarHeight = Constants.statusBarHeight;
 
 export const ScrollView = styled.ScrollView`
     flex: 1;
-    background-color: ${({ theme }) => theme.colors.gray100};
+    background-color: ${({ theme }) => theme.colors.white};
 `
 
 export const Container = styled.View`
@@ -17,9 +17,8 @@ export const Container = styled.View`
 `
 
 export const SearchContainer = styled.View`
-    flex-direction: column;
-    justify-content: center;
-    height: 1100px;
     width: 100%;
-    background-color: rebeccapurple;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 10px;
 `

@@ -15,9 +15,11 @@ import { useEffect, useState } from "react";
 
 import { onAuthStateChanged, User } from "firebase/auth";
 import { FIREBASE_AUTH } from "./FirebaseConfig";
-import { MyTabs } from "./src/routes/routes";
+import { InsideLayout, MyTabs } from "./src/routes/routes";
+import ItemDetailScreen from "./src/app/Home/Product";
 
 const Stack = createNativeStackNavigator()
+
 
 SplashScreen.preventAutoHideAsync(); 
 
@@ -51,7 +53,7 @@ export default function App() {
         <Stack.Navigator initialRouteName='LogIn'>
           { user ?
             <>
-              <Stack.Screen name="Main" component={MyTabs} options={{ headerShown: false }} />
+              <Stack.Screen name="Main" component={InsideLayout} options={{ headerShown: false }} />
             </>
             :
             <Stack.Screen name="LogIn" component={LogIn} options={{ headerShown: false }}/>

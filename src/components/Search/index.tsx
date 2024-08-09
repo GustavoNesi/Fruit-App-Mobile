@@ -7,7 +7,7 @@ export function Search() {
             <Input
                 placeholder="Procure sua fruta"
             />
-            <Feather name="search" size={24} color="#64748b"/>
+            <Feather name="search" size={24} color="#222831"/>
         </Container>
     )
 }

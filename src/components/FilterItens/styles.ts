@@ -6,8 +6,9 @@ type ItemProps = {
 
 export const Container = styled.View`
   height: 1000px;
-  width: 500px;
-  background-color: black;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
 `;
 
 export const RowContainer = styled.View`
@@ -16,7 +17,7 @@ export const RowContainer = styled.View`
   
 `;
 
-export const Item = styled.View`
+export const Item = styled.TouchableOpacity`
   width: 180px;
   height: 220px;
   background-color: ${props => props.backgroundColor};

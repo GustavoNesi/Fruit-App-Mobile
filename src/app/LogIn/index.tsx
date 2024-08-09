@@ -1,4 +1,4 @@
-import { Button, Container, ContainerInputs, ContentContainer, Img, Inputs, SubTitle, TextButton, Title, TypeProps } from "./styles";
+import { Button, Container, ContainerInputs, ContentContainer, Img, Inputs, SubTitle, TextButton, Title } from "./styles";
 
 import Background from "../../assets/background.jpg";
 
@@ -6,7 +6,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from "react";
 import { FIREBASE_AUTH } from "../../../FirebaseConfig";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Platform } from "react-native";
 import { ErrorMessage } from "../../components/ErrorContainer";
 
 export function LogIn() {
@@ -52,11 +52,9 @@ export function LogIn() {
             setLoading(false)
         }
     }
-    
  
-
     return(
-        <Container>
+        <Container behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
             <Img source={Background}/>
             <ContentContainer>
                 <Title>
