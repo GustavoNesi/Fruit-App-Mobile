@@ -5,7 +5,7 @@ import Constants  from "expo-constants";
 const statusBarHeight = Constants.statusBarHeight;
 
 export const Container = styled.View`
-    margin-top: ${statusBarHeight + 8}px;
+    margin-top: ${statusBarHeight + 0}px;
     background-color: ${({ theme }) => theme.colors.white};
     flex-direction: column;
     gap: 120px;
@@ -16,6 +16,32 @@ export const Header = styled.View`
     height: 56px;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
+`
+
+export const IconsContainer = styled.View`
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+`
+
+export const BagContainer = styled.View`
+    position: absolute; 
+    right: 45px;
+    bottom: 0.5px;
+` 
+
+export const BagCounter = styled.Text`
+    position: relative; 
+    background-color: ${({ theme }) => theme.colors.red500};
+    border-radius: 1000px;
+    width: 20px;
+    height: 20px;
+    bottom: 10px;
+    left: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.white}
 `
 
 export const ContentWrapper = styled.View`
@@ -24,7 +50,7 @@ export const ContentWrapper = styled.View`
 
 export const ContentContainer = styled.View`
     background-color: ${props => props.backgroundColor};
-    height: 610px;
+    height: 620px;
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
     opacity: 0.7; 
@@ -110,7 +136,7 @@ export const TextDescription = styled.Text`
 
 export const Button = styled.TouchableOpacity`
     margin-top: auto;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     text-align: center;
     align-items: center;
     justify-content: center;

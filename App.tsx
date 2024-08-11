@@ -7,7 +7,6 @@ import theme from "./src/theme";
 
 import { StatusBar } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home } from "./src/app/Home";
 import { NavigationContainer } from "@react-navigation/native";
 import { LogIn } from "./src/app/LogIn";
 
@@ -15,8 +14,8 @@ import { useEffect, useState } from "react";
 
 import { onAuthStateChanged, User } from "firebase/auth";
 import { FIREBASE_AUTH } from "./FirebaseConfig";
-import { InsideLayout, MyTabs } from "./src/routes/routes";
-import ItemDetailScreen from "./src/app/Home/Product";
+import { InsideLayout } from "./src/routes/routes";
+import { CartProvider } from "./src/hooks/CartContext";
 
 const Stack = createNativeStackNavigator()
 
@@ -49,16 +48,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <ThemeProvider theme={theme}>
-      <StatusBar barStyle="light-content" translucent backgroundColor="transparent"/>
-        <Stack.Navigator initialRouteName='LogIn'>
-          { user ?
-            <>
-              <Stack.Screen name="Main" component={InsideLayout} options={{ headerShown: false }} />
-            </>
-            :
-            <Stack.Screen name="LogIn" component={LogIn} options={{ headerShown: false }}/>
-          }
-        </Stack.Navigator>
+        <CartProvider>
+          <StatusBar barStyle="light-content"  translucent  backgroundColor="transparent"/>
+          <Stack.Navigator initialRouteName='LogIn'>
+            { user ?
+              <>
+                <Stack.Screen name="Main" component={InsideLayout} options={{ headerShown: false }} />
+              </>
+              :
+              <Stack.Screen name="LogIn" component={LogIn} options={{ headerShown: false }}/>
+            }
+          </Stack.Navigator>
+        </CartProvider>
       </ThemeProvider>
     </NavigationContainer>
     

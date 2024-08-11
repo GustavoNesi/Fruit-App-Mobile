@@ -1,13 +1,12 @@
+import { ItemProps } from "..";
+import { Container, ImageButton } from "./styles";
 
-import { Container } from "./styles";
 
-type ItemProps = {
-    backgroundColor: string;
-};
-
-export function ButtonList({ backgroundColor }: ItemProps) {
+export function ButtonList({ backgroundColor, image }: ItemProps) {
     return(
-        <Container backgroundColor={backgroundColor}/>
+        <Container backgroundColor={backgroundColor}>
+            <ImageButton source={image}/> 
+        </Container>
 
     )
 }

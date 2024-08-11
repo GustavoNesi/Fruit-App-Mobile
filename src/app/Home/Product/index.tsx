@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
 import { 
+  BagContainer,
+  BagCounter,
   Button, 
   ButtonCounter, 
   ButtonText, 
@@ -10,6 +12,7 @@ import {
   Counter, 
   CounterValue, 
   Header, 
+  IconsContainer, 
   ImageFruit, 
   NameContainer, 
   NameText, 
@@ -22,14 +25,25 @@ from './styles';
 
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-import fruit from "../../../assets/fruits/fruit1.png"
-import { TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-export default function ItemDetailScreen({ route }) {
+import { TouchableOpacity, View } from 'react-native';
+import { RouteProp, useRoute } from '@react-navigation/native';
+import { RootStackParamList } from '../../../@types/types';
+import { useCart } from '../../../hooks/CartContext';
+
+
+type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'details'>;
+
+export default function ItemDetailScreen() {
+  const route = useRoute<DetailsScreenRouteProp>();
   const { item } = route.params;
   const [isFavorite, setIsFavorite] = useState(false);
   const [count, setCount] = useState(1);
-  const [stars, setStars] = useState([false, false, false, false, false])
+  const [stars, setStars] = useState([false, false, false, false, false]);
+  const [isBagCounterVisible, setIsBagCounterVisible] = useState(false);
+
+  const { addItemToCart } = useCart();
 
   function toggleFavorite() {
     setIsFavorite(!isFavorite); 
@@ -47,6 +61,10 @@ export default function ItemDetailScreen({ route }) {
     }
   };
 
+  function handleAddToCart() {
+    addItemToCart(item, count);
+  }
+
   function decrement() {
     if (count > 1) { 
       setCount(count - 1);
@@ -58,20 +76,33 @@ export default function ItemDetailScreen({ route }) {
 
         <Header>
           <AntDesign name="left" size={24} color="black" />
-          <AntDesign
-            name={isFavorite ? "heart" : "hearto"} 
-            size={24}
-            color={isFavorite ? "#A02334" : "#000"}
-            onPress={toggleFavorite}
-          />
+
+          <IconsContainer>
+
+            <BagContainer>
+              <Ionicons name="bag-handle-outline" size={28} color="#000" />
+            </BagContainer>
+
+            {isBagCounterVisible && (
+              <BagCounter>{count}</BagCounter>
+            )}
+
+            <AntDesign
+              name={isFavorite ? "heart" : "hearto"} 
+              size={24}
+              color={isFavorite ? "#A02334" : "#000"}
+              onPress={toggleFavorite}
+            />
+          </IconsContainer>
+          
         </Header>
 
         <ContentWrapper>
-          <ContentContainer backgroundColor={item.backgroundColor}>
+          <ContentContainer backgroundColor={item.background_color}>
 
             <NameContainer>
 
-              <NameText>{item.FruitName}</NameText>
+              <NameText>{item.name}</NameText>
 
               <StarContainer>
                 {stars.map((star, index) => (
@@ -107,7 +138,7 @@ export default function ItemDetailScreen({ route }) {
 
                 </Counter>
 
-                <PriceText>$ {(item.price * count).toFixed(2)}</PriceText>
+                <PriceText>R$ {(item.price_per_unit * count).toFixed(2)}</PriceText>
 
             </PriceContainer>
 
@@ -115,12 +146,12 @@ export default function ItemDetailScreen({ route }) {
                 {item.description}
             </TextDescription>
 
-            <Button backgroundColor={item.backgroundColor}>
+            <Button backgroundColor={item.background_color} onPress={handleAddToCart}>
                 <ButtonText>Adicionar ao Carrinho</ButtonText>
             </Button>
           </ContentContainer>
 
-          <ImageFruit source={fruit} />
+          <ImageFruit source={(item.image_url)} backgroundColor={item.background_color}/>
       </ContentWrapper>
 
     </Container>

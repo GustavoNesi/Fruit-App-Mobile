@@ -17,3 +17,9 @@ export const Container = styled.TouchableOpacity<{ backgroundColor: string }>`
     shadow-opacity: 0.2;
     shadow-radius: 5px;
 `
+
+export const ImageButton = styled.Image.attrs({
+    resizeMode: 'contain'
+})`
+    
+`

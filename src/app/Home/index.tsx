@@ -25,7 +25,6 @@ export function Home() {
           </SearchContainer>
 
           <Items/>
-          
         </Container>
       </ScrollView>
         

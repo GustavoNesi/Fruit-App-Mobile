@@ -3,7 +3,9 @@ export default {
         black: "#161616",
         white: "#F7F7F7",
 
+        gray50: "#F8EDE3",
         gray100: "#D1D4C9",
+        gray150: "#B3B3B3",
         gray200: "#393E46",
         gray300: "#222831",
 
@@ -15,7 +17,10 @@ export default {
 
         yellow400: "#FFB22C",
 
-        blue500: "#36BA98",
+        orange600: "#DC5F00",
+
+        blue300: "#36BA98",
+        blue500: "#01204E",
 
         purple400: "#522258",
     },
