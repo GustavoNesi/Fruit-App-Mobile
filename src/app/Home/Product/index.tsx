@@ -4,32 +4,29 @@ import {
   BagContainer,
   BagCounter,
   Button, 
-  ButtonCounter, 
   ButtonText, 
   Container, 
   ContentContainer, 
   ContentWrapper, 
-  Counter, 
-  CounterValue, 
   Header, 
   IconsContainer, 
   ImageFruit, 
   NameContainer, 
   NameText, 
+  NotificationContainer, 
+  NotificationText, 
   PriceContainer, 
   PriceText, 
-  StarContainer, 
+  StarContainer,
   TextDescription, 
-  Value } 
+} 
 from './styles';
 
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-import Ionicons from '@expo/vector-icons/Ionicons';
-
-import { TouchableOpacity, View } from 'react-native';
-import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParamList } from '../../../@types/types';
+import { TouchableOpacity } from 'react-native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { RootStackNavigationProp, RootStackParamList } from '../../../@types/types';
 import { useCart } from '../../../hooks/CartContext';
 
 
@@ -41,7 +38,10 @@ export default function ItemDetailScreen() {
   const [isFavorite, setIsFavorite] = useState(false);
   const [count, setCount] = useState(1);
   const [stars, setStars] = useState([false, false, false, false, false]);
-  const [isBagCounterVisible, setIsBagCounterVisible] = useState(false);
+  const navigation = useNavigation<RootStackNavigationProp>();
+
+  const [notificationVisible, setNotificationVisible] = useState(false);
+
 
   const { addItemToCart } = useCart();
 
@@ -63,29 +63,21 @@ export default function ItemDetailScreen() {
 
   function handleAddToCart() {
     addItemToCart(item, count);
+
+    setNotificationVisible(true);
+
+    setTimeout(() => {
+      setNotificationVisible(false);
+    }, 2000);
   }
 
-  function decrement() {
-    if (count > 1) { 
-      setCount(count - 1);
-    }
-  }
-  
   return (
       <Container>
 
         <Header>
-          <AntDesign name="left" size={24} color="black" />
+          <AntDesign name="left" size={24} color="black" onPress={() => navigation.goBack()}/>
 
           <IconsContainer>
-
-            <BagContainer>
-              <Ionicons name="bag-handle-outline" size={28} color="#000" />
-            </BagContainer>
-
-            {isBagCounterVisible && (
-              <BagCounter>{count}</BagCounter>
-            )}
 
             <AntDesign
               name={isFavorite ? "heart" : "hearto"} 
@@ -120,24 +112,6 @@ export default function ItemDetailScreen() {
 
             <PriceContainer>
 
-                <Counter>
-
-                  <ButtonCounter onPress={decrement}>
-
-                    <CounterValue>-</CounterValue>
-
-                  </ButtonCounter>
-
-                  <Value>{count}</Value>
-
-                  <ButtonCounter onPress={() => setCount(count + 1)}>
-
-                    <CounterValue>+</CounterValue>
-
-                  </ButtonCounter>
-
-                </Counter>
-
                 <PriceText>R$ {(item.price_per_unit * count).toFixed(2)}</PriceText>
 
             </PriceContainer>
@@ -151,8 +125,14 @@ export default function ItemDetailScreen() {
             </Button>
           </ContentContainer>
 
-          <ImageFruit source={(item.image_url)} backgroundColor={item.background_color}/>
+          <ImageFruit source={{ uri: item.image_url }} backgroundColor={item.background_color}/>
       </ContentWrapper>
+
+      {notificationVisible && (
+        <NotificationContainer>
+          <NotificationText>Item adicionado ao carrinho!</NotificationText>
+        </NotificationContainer>
+      )}
 
     </Container>
   );

@@ -6,10 +6,10 @@ import { FruitItem } from '../components/FilterItens';
 export type RootStackParamList = {
   LogIn: undefined;
   Main: undefined;
-  details: { item: FruitItem }; // Parâmetros esperados para a tela 'details'
+  details: { item: FruitItem };
 };
 
-// Tipos de navegação para a navegação de abas (caso use)
+// Tipos de navegação para a navegação de abas
 export type RootTabParamList = {
   Home: undefined;
   Cart: undefined;

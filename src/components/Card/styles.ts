@@ -1,14 +1,27 @@
 import styled from "styled-components/native";
 
+export const ContainerOpacity = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    height: 250px;
+    width: 370px;
+    right: 6px;
+    background-color: ${props => props.background_color};
+    position: relative;
+    opacity: 0.5;
+    overflow: hidden;
+    border-radius: 15px;
+`
 export const CartProductContainer = styled.View`
     flex-direction: row;
     justify-content: space-between;
     height: 250px;
     width: 370px;
-    border-top-width: 2px;
-    border-bottom-width: 2px;
-    border-color: ${({ theme }) => theme.colors.gray100};
+    right: 0px;
+    background-color: transparent;
+    position: absolute;
 `
+
 export const ImageContainer = styled.View`
     width: 150px;
     height: 100%;
@@ -20,8 +33,8 @@ export const Image = styled.Image.attrs({
 })`
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.gray100};
     border-radius: 10px;
+    background-color: ${props => props.background_color};
 `
 export const CardContainer = styled.View`
     height: 100%;
@@ -66,7 +79,7 @@ export const Counter = styled.View`
     align-items: center;
     width: 85px;
     height: 30px;
-    background-color: ${({ theme }) => theme.colors.gray100};
+    background-color: ${({ theme }) => theme.colors.white};
     border-radius: 10px;
 `
 export const ButtonCounter = styled.TouchableOpacity`
@@ -88,7 +101,7 @@ export const Value = styled.Text`
   width: 40px;
   border-left-width: 2px;
   border-right-width: 2px;
-  border-color: ${({ theme }) => theme.colors.white};
+  border-color: ${({ theme }) => theme.colors.gray50};
 `;
 
 export const PriceText = styled.Text`

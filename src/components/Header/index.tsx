@@ -1,8 +1,12 @@
+import { useNavigation } from "@react-navigation/native";
 import { AvatarContainer, Container, Img, MarketContainer, SubTitle, TextContainer, Title, TitleContainer } from "./styles";
 
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { RootStackNavigationProp } from "../../@types/types";
 
 export function Header() {
+    const navigation = useNavigation<RootStackNavigationProp>();
+
     return(
         <Container>
 
@@ -18,7 +22,7 @@ export function Header() {
             
 
             <MarketContainer>
-                <Ionicons name="bag-handle-outline" size={24} color="#222831" />
+                <Ionicons name="bag-handle-outline" size={24} color="#222831" /*{onPress={() => navigation.navigate('Cart')}}*//>
             </MarketContainer>
         </Container>
     )

@@ -5,16 +5,12 @@ type ItemProps = {
 };
 
 export const Container = styled.View`
-  height: 1000px;
+  flex: 1;
   width: 100%;
   margin-top: 10px;
-  margin-left: 10px;
-`;
-
-export const RowContainer = styled.View`
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  
 `;
 
 export const Item = styled.TouchableOpacity`
@@ -34,7 +30,7 @@ export const ItemImageContainer = styled.View`
   flex: 1;
 `;
 
-export const Image = styled.Image.attrs({
+export const ImageStyle = styled.Image.attrs({
   resizeMode: "contain"
 })`
   width: 140px;

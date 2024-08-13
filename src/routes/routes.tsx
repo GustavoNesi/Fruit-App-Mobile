@@ -4,9 +4,9 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from '../app/Home';
-import { Cart } from '../app/Home/Cart';
 import ItemDetailScreen from '../app/Home/Product';
 import { CartProvider } from '../hooks/CartContext';
+import { Cart } from '../app/Cart';
 
 const Tab = createBottomTabNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -28,7 +28,7 @@ export function InsideLayout() {
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
-          backgroundColor: "#222831",
+          backgroundColor: "#FFF",
           borderTopWidth: 0,
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
@@ -43,7 +43,7 @@ export function InsideLayout() {
         component={InsideStackNavigator}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
-            focused ? <Entypo name="home" size={size} color="#F7F7F7" /> : <AntDesign name="home" size={size} color="#F7F7F7" />
+            focused ? <Entypo name="home" size={size} color="#000" /> : <AntDesign name="home" size={size} color="#313131" />
           ),
           headerShown: false
         }}
@@ -53,7 +53,7 @@ export function InsideLayout() {
         component={Cart}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
-            focused ? <Ionicons name="bag-handle-sharp" size={size} color="#F7F7F7" /> : <Ionicons name="bag-handle-outline" size={size} color="#F7F7F7" />
+            focused ? <Ionicons name="bag-handle-sharp" size={size} color="#000" /> : <Ionicons name="bag-handle-outline" size={size} color="#313131" />
           ),
           headerShown: false
         }}

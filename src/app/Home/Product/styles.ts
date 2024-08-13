@@ -6,7 +6,6 @@ const statusBarHeight = Constants.statusBarHeight;
 
 export const Container = styled.View`
     margin-top: ${statusBarHeight + 0}px;
-    background-color: ${({ theme }) => theme.colors.white};
     flex-direction: column;
     gap: 120px;
 `
@@ -41,7 +40,7 @@ export const BagCounter = styled.Text`
     left: 8px;
     text-align: center;
     font-weight: bold;
-    color: ${({ theme }) => theme.colors.white}
+    color: ${({ theme }) => theme.colors.white};
 `
 
 export const ContentWrapper = styled.View`
@@ -80,6 +79,7 @@ export const PriceContainer = styled.View`
     width: 100%;
     height: 90px;
     margin-top: 15px;
+    margin-left: 30px;
     justify-content: space-between;
     align-items: center;
     border-top-width: 2px;
@@ -92,42 +92,6 @@ export const PriceText = styled.Text`
     color: ${({ theme }) => theme.colors.white};
     margin-right: 20px;
 `
-
-export const Counter = styled.View`
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 160px;
-    height: 60px;
-    margin-left: 20px;
-    background-color: ${({ theme }) => theme.colors.white};
-    border-radius: 20px;
-`
-
-export const ButtonCounter = styled.TouchableOpacity`
-    color: white;
-    height: 100%;
-    width: 40%;
-    font-size: 18px;
-    justify-content: center;
-    align-items: center;
-`
-
-export const CounterValue = styled.Text`
-    font-size: 24px;
-    font-weight: bold;
-`
-
-export const Value = styled.Text`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  width: 50px;
-  border-left-width: 2px;
-  border-right-width: 2px;
-  border-color: ${({ theme }) => theme.colors.gray100};
-`;
-
 export const TextDescription = styled.Text`
     padding: 20px;
     font-size: 20px;
@@ -149,7 +113,7 @@ export const Button = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
     font-size: 25px;
     font-weight: bold;
-    color: ${({ theme }) => theme.colors.white} 
+    color: ${({ theme }) => theme.colors.white} ;
 `
 
 export const ImageFruit = styled.Image.attrs({
@@ -171,3 +135,25 @@ export const ImageFruit = styled.Image.attrs({
     shadow-opacity: 0.2;
     shadow-radius: 5px;
 `;
+
+export const NotificationContainer = styled.View`
+    position: absolute;
+    top: 0;
+    left: 100px;
+    background-color: ${({ theme }) => theme.colors.green400};
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    width: 50%;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+`;
+
+export const NotificationText = styled.Text`
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 16px;
+    font-weight: bold;
+`;
+

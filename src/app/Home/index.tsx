@@ -1,13 +1,19 @@
+import { useState } from "react";
 
-import { Header } from "../../components/Header";
-import { Container, ScrollView, SearchContainer,  } from "./styles";
+import { Container, 
+  Input, 
+  InputContainer, 
+  ScrollView, 
+  SearchContainer,  
+} from "./styles";
+
 import { Banner } from "../../components/Banner";
-import { FilterButton } from "../../components/FilterButton";
 import { Items } from "../../components/FilterItens";
-import { Search } from "../../components/Search";
-import { Section } from "../../components/section";
+import { Header } from "../../components/Header";
 
 export function Home() {
+    const [searchQuery, setSearchQuery] = useState('');
+
     return(
       <ScrollView>
         <Container>
@@ -16,15 +22,18 @@ export function Home() {
 
           <Banner/>
 
-          <Section name="Categorias"/>
-
-          <FilterButton/>
-
           <SearchContainer>
-            <Search/>
+            <InputContainer>
+              <Input
+                  placeholder="Procure sua fruta"
+                  value={searchQuery}
+                  onChangeText={(text) => setSearchQuery(text)}
+              />
+            </InputContainer>
           </SearchContainer>
 
-          <Items/>
+          <Items searchQuery={searchQuery}/>
+
         </Container>
       </ScrollView>
         

@@ -32,7 +32,6 @@ export const ContentContainer = styled.View`
 `
 
 export const Title = styled.Text`
-    font-family: ${({ theme }) => theme.fonts.text};
     color: ${({ theme }) => theme.colors.black};
     font-size: 40px;
     font-weight: bold;
@@ -41,7 +40,6 @@ export const Title = styled.Text`
 `
 
 export const SubTitle = styled.Text`
-    font-family: ${({ theme }) => theme.fonts.text};
     color: ${({ theme }) => theme.colors.gray300};
     font-size: 13px;
     
@@ -84,7 +82,6 @@ export const Button = styled.TouchableOpacity<ButtonContainerProps>`
 `
 
 export const TextButton = styled.Text`
-    font-family: ${({ theme }) => theme.fonts.text};
     color: ${({ theme }) => theme.colors.white};
     font-size: 15px;
     font-weight: bold;

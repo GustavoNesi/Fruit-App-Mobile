@@ -1,7 +1,5 @@
 import { Button, Container, ContainerInputs, ContentContainer, Img, Inputs, SubTitle, TextButton, Title } from "./styles";
-
 import Background from "../../assets/background.jpg";
-
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useState } from "react";
 import { FIREBASE_AUTH } from "../../../FirebaseConfig";
@@ -11,48 +9,48 @@ import { ErrorMessage } from "../../components/ErrorContainer";
 
 export function LogIn() {
     const [isFocused, setIsFocused] = useState(false);
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-
     const [error, setError] = useState('');
     const [errorVisible, setErrorVisible] = useState(false);
-
     const auth = FIREBASE_AUTH;
 
+    // Função para realizar o login
     async function signIn() {
         setLoading(true);
-        setError(''); 
+        setError('');
         setErrorVisible(false);
 
         try {
-            const response = await signInWithEmailAndPassword(auth, email, password)
-            console.log(response)
+            const response = await signInWithEmailAndPassword(auth, email, password);
+            console.log(response);
         } catch (error: any) {
-            console.log(error)
-            setError("Erro ao fazer o Login")
-            setErrorVisible(true)
+            setError("Erro ao fazer o Login");
+            setErrorVisible(true);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
  
+    // Função para criar uma nova conta
     async function signUp() {
         setLoading(true);
-        setError(''); 
+        setError('');
         setErrorVisible(false);
+
         try {
-            const response = await createUserWithEmailAndPassword(auth, email, password)
-            console.log(response)
+            const response = await createUserWithEmailAndPassword(auth, email, password);
+            console.log(response);
+            setErrorVisible(true);
         } catch (error: any) {
-            setError("Erro ao fazer o Cadastro")
-            setErrorVisible(true)
+            setError("Erro ao fazer o Cadastro");
+            setErrorVisible(true);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
- 
+
     return(
         <Container behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
             <Img source={Background}/>
@@ -86,8 +84,8 @@ export function LogIn() {
 
                     <ErrorMessage message={error} visible={errorVisible} />
 
-                    { loading ? 
-                        <ActivityIndicator size='large' color="#346751"/>
+                    {loading ? 
+                        <ActivityIndicator size='large' color="#346751"/> 
                         :
                         <>
                             <Button type="primary" onPress={() => signIn()}> 
@@ -97,11 +95,9 @@ export function LogIn() {
                                 <TextButton>Criar a Conta</TextButton>
                             </Button>
                         </>
-                            
                     }
                 </ContainerInputs> 
             </ContentContainer>
-            
         </Container>
     );
 };

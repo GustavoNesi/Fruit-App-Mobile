@@ -35,6 +35,4 @@ yarn-error.*
 *.tsbuildinfo
 
 # Firebase 
-serviceAccount.json
-importFruits.js
-
+FirabaseConfig.ts
