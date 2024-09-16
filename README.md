@@ -11,23 +11,23 @@
 
 ### Tela de Login
 <p aling="center">
-   <img src="./src/assets/to_readme/4.jpg" alt="Tela de login" width="300" height="200" />
+   <img src="./src/assets/to_readme/4.jpg" alt="Tela de login" width="200" height="300" />
 </p>
 
 
 - **Navegar pelas frutas**: Veja uma lista de frutas disponíveis.
 <p aling="center">
-   <img src="./src/assets/to_readme/2.jpg" alt="Tela de login" width="300" height="200" />
+   <img src="./src/assets/to_readme/2.jpg" alt="Tela de navegação" width="200" height="300" />
 </p>
 
 - **Detalhes da fruta**: Visualize informações sobre cada fruta.
 <p aling="center">
-   <img src="./src/assets/to_readme/1.jpg" alt="Tela de login" width="300" height="200" />
+   <img src="./src/assets/to_readme/1.jpg" alt="Tela de detalhes da frutas" width="200" height="300" />
 </p>
 
 - **Adicionar ao carrinho**: Selecione frutas para comprar.
 <p aling="center">
-   <img src="./src/assets/to_readme/3.jpg" alt="Tela de login" width="300" height="200" />
+   <img src="./src/assets/to_readme/3.jpg" alt="Tela de login" width="200" height="300" />
 </p>
 
 
