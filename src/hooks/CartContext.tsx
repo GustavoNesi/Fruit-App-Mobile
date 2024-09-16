@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-// Definindo a interface para um item do carrinho
 interface CartItem {
   id: string;
   name: string;
@@ -11,7 +10,6 @@ interface CartItem {
   quantity: number;
 }
 
-// Interface para o contexto do carrinho
 interface CartContextType {
   cartItems: CartItem[];
   addItemToCart: (item: Omit<CartItem, 'quantity'>, quantity: number) => void;
@@ -19,7 +17,6 @@ interface CartContextType {
   removeItemFromCart: (id: string) => void;
 }
 
-// Criação do contexto do carrinho
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 interface CartProviderProps {
@@ -40,7 +37,6 @@ export function CartProvider({ children }: CartProviderProps) {
         newItems[itemIndex].quantity += quantity;
         return newItems;
       }
-      // Adiciona um novo item ao carrinho
       return [...prevItems, { ...item, quantity }];
     });
   };
@@ -49,7 +45,6 @@ export function CartProvider({ children }: CartProviderProps) {
   const updateItemQuantity = (id: string, quantity: number) => {
     setCartItems(prevItems => {
       if (quantity <= 0) {
-        // Remove o item se a quantidade for zero ou menor
         return prevItems.filter(item => item.id !== id);
       }
       return prevItems.map(item =>
@@ -70,7 +65,6 @@ export function CartProvider({ children }: CartProviderProps) {
   );
 }
 
-// Hook personalizado para acessar o contexto do carrinho
 export function useCart() {
   const context = useContext(CartContext);
   if (context === undefined) {

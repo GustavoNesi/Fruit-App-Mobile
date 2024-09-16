@@ -37,11 +37,9 @@ export function Items({ searchQuery }: { searchQuery: string }) {
   useEffect(() => {
     const fetchFruits = async () => {
       try {
-        // Busca todos os documentos da coleção 'fruits'
         const querySnapshot = await getDocs(collection(FIREBASE_DB, 'fruits'));
         const fruitList: FruitItem[] = [];
 
-        // Processa cada documento
         for (const doc of querySnapshot.docs) {
           const data = doc.data() as FruitItem;
           const imageRef = ref(FIREBASE_STORAGE, data.image_url);
@@ -64,7 +62,6 @@ export function Items({ searchQuery }: { searchQuery: string }) {
     fetchFruits();
   }, []);
 
-  // Filtra as frutas com base na consulta de pesquisa
   const filteredFruits = fruits.filter(fruit =>
     fruit.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -84,7 +81,7 @@ export function Items({ searchQuery }: { searchQuery: string }) {
             <ItemDescriptionContainer>
               <ItemName>{item.name}</ItemName>
               <ItemPricePerKg>{item.price_per_kg} / Kg</ItemPricePerKg>
-              <ItemPrice>R$ {item.price_per_unit}</ItemPrice>
+              <ItemPrice>R$ {item.price_per_unit.toFixed(2)}</ItemPrice>
             </ItemDescriptionContainer>
             <ContainerPurchase 
               backgroundColor={item.background_color} 

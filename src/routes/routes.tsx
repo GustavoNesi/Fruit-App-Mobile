@@ -5,7 +5,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from '../app/Home';
 import ItemDetailScreen from '../app/Home/Product';
-import { CartProvider } from '../hooks/CartContext';
 import { Cart } from '../app/Cart';
 
 const Tab = createBottomTabNavigator();
